@@ -90,13 +90,13 @@ float calcularPromediou(int i){
     float promedioACD, promedioAA, promedioAPE, promedioES, totalUnidad;
     printf("Calculando el promedio final de la UNIDAD %i \n", i);
     promedioACD = calcularACD();
-    printf("El ponderado de los ACD es de %.2f \n", promedioACD);
+    printf("El ponderado del 20%% de los ACD es de %.2f \n", promedioACD);
     promedioAPE = calcularAPE();
-    printf("El ponderado de los APE es de %.2f \n", promedioAPE);
+    printf("El ponderado del 25%% de los APE es de %.2f \n", promedioAPE);
     promedioAA = calcularAA();
-    printf("El ponderado de los AA es de %.2f \n", promedioAA);
+    printf("El ponderado del 20%% de los AA es de %.2f \n", promedioAA);
     promedioES = calcularES();
-    printf("El ponderado de los ES es de %.2f \n", promedioES);
+    printf("El ponderado del 35%% de los ES es de %.2f \n", promedioES);
     totalUnidad = promedioACD + promedioAPE + promedioAA + promedioES;
     printf("El promedio final de la unidad %i es de %.2f \n", i, totalUnidad);
 
