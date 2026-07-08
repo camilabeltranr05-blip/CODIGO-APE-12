@@ -56,21 +56,41 @@ float calcularAA(){
     return promedio;
 }
 //Calculo de los ES
+//Calculo de los ES (Adaptado con Evaluación, Portafolio y Porcentajes)
 float calcularES(){
-    float ES, suma = 0, promedio;
-    int i, nA;
-    printf("--------------------------------------------------\n Ingrese el numero de actividades (ES) a promediar: \n--------------------------------------------------\n");
-    scanf("%i", &nA);
-    for(i = 1; i <=nA; i++){
-        printf("Actividad %i \n", i);
-        do{
-        printf("Nota del ES: \n");
-        scanf("%f", &ES);
-        }while(ES <0 || ES >11);
-        suma = suma + ES;
-    }
-    
-    promedio = (suma / nA)*0.35;
+    float evaluacion, porcentajeE;
+    float portafolio, porcentajeP;
+    float resultado, promedio;
+
+    printf("--------------------------------------------------\n");
+    printf(" Calculo de la evaluacion sumativa (ES) \n");
+    printf("--------------------------------------------------\n");
+
+    do {
+        printf("Ingrese la nota de la evaluacion sumativa (0-10): \n");
+        scanf("%f", &evaluacion);
+    } while(evaluacion < 0 || evaluacion > 10);
+    do {
+        printf("Ingrese la nota del portafolio: \n");
+        scanf("%f", &portafolio);
+    } while(portafolio < 0 || portafolio > 10);
+    do {
+        printf("Ingrese el porcentaje para la Evaluacion: \n");
+        scanf("%f", &porcentajeE);
+        printf("Ingrese el porcentaje para el Portafolio: \n");
+        scanf("%f", &porcentajeP);
+        
+        if((porcentajeE + porcentajeP) != 100) {
+            printf("Los porcentajes deben sumar exactamente 100. Intente de nuevo.\n");
+        }
+    } while((porcentajeE + porcentajeP) != 100);
+
+    // Cálculo del promedio simple
+    resultado = (evaluacion * (porcentajeE / 100.0)) + (portafolio * (porcentajeP / 100.0));
+    printf("El promedio de la evaluacionn sumativa es: %.2f \n", resultado);
+
+    // Ponderado final del 35%
+    promedio = resultado * 0.35;
     return promedio;
 }
 //Calcular nota cualitativa
@@ -117,6 +137,9 @@ int main(){
 
     }
     notaFinal = (U1 + U2 + U3)/3;
+    printf("\n==================================================\n");
+    printf(" NOTA FINAL DE LAS 3 UNIDADES: %.2f\n", notaFinal);
+    printf("==================================================\n");
     notaCualitativa(notaFinal);
     return 0;
 }
