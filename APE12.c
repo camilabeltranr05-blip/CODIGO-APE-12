@@ -59,7 +59,7 @@ float calcularAA(){
 float calcularES(){
     float ES, suma = 0, promedio;
     int i, nA;
-    printf("--------------------------------------------------\n Ingrese el numero de actividades (AA) a promediar: \n--------------------------------------------------\n");
+    printf("--------------------------------------------------\n Ingrese el numero de actividades (ES) a promediar: \n--------------------------------------------------\n");
     scanf("%i", &nA);
     for(i = 1; i <=nA; i++){
         printf("Actividad %i \n", i);
@@ -77,7 +77,7 @@ float calcularES(){
 void notaCualitativa(float notaFinal){
     if(notaFinal >= 7){
         printf("APROBADO \n");
-    }else if(notaFinal >= 2.5 || notaFinal <7){
+    }else if(notaFinal >= 2.5 && notaFinal <7){
         printf("SUPLETORIO \n");
     }else if(notaFinal < 2.5){
         printf("REPROBADO \n");
